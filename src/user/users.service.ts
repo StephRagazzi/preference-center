@@ -8,7 +8,7 @@ export class UsersService {
     constructor(@Inject('USERCONSENT_MODEL') private readonly userConsentModel: Model<UserConsent>) { }
 
     async create(createUserDto: CreateUserDto): Promise<UserConsent> {
-        const createdUser = this.userConsentModel.create(createUserDto);
+        const createdUser = await this.userConsentModel.create(createUserDto);
         return createdUser;
     }
 

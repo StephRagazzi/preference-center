@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Delete, Body, Param, HttpStatus, Res } from '@nestjs/common';
+import { Controller, Get, Post, Delete, Body, Param, HttpStatus, HttpException } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UsersService } from './users.service';
 import { UserConsent } from './interfaces/userConsent.interface';
@@ -7,11 +7,19 @@ import { UserConsent } from './interfaces/userConsent.interface';
 export class UsersController {
     constructor(private readonly userService: UsersService) { }
 
-
     @Post()
     async create(@Body() createUserDto: CreateUserDto) {
-        console.log(createUserDto);
-        return this.userService.create(createUserDto);
+        const errorMessage = 'The e-mail address already exists';
+        try {
+            return await this.userService.create(createUserDto);
+        } catch (error) {
+            throw new HttpException({
+                status: HttpStatus.UNPROCESSABLE_ENTITY,
+                error: errorMessage,
+            }, HttpStatus.UNPROCESSABLE_ENTITY, {
+                cause: error
+            });
+        }
     }
 
     @Get()

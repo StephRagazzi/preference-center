@@ -20,7 +20,15 @@ export class UserConsent {
     @Prop()
     id: string;
 
-    @Prop()
+    @Prop({
+        type: String, validate: {
+            validator: async (email) => {
+                const emailCount = await mongoose.models.UserConsent.countDocuments({ email });
+                return !emailCount;
+            },
+            message: 'The e-mail address already exists!'
+        }
+    })
     email: string;
 
     @Prop({ type: mongoose.Schema.Types.Mixed, ref: 'Consents' })
