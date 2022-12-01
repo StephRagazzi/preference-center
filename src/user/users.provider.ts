@@ -1,0 +1,10 @@
+import { Mongoose } from 'mongoose';
+import { UserConsentSchema } from './schemas/user.schema';
+
+export const usersProviders = [
+    {
+        provide: 'USERCONSENT_MODEL',
+        useFactory: (mongoose: Mongoose) => mongoose.model('UserConsent', UserConsentSchema),
+        inject: ['DATABASE_CONNECTION'],
+    },
+];
