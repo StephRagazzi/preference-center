@@ -59,3 +59,10 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
+## TODOs
+
+- Write tests
+- Manage exceptions that may occur
+- add checks during operations
+- add security
