@@ -63,7 +63,7 @@ $ npm run test:cov
 ## TODOs
 
 - Write tests
-- Use a fake db for tests / Implement a mechanism to switch from a real database (prod) to a fake db (dev)
+- Use a fake db for tests / Implement a mechanism to switch from a real database (prod) to a fake db (dev/tests)
 - Manage exceptions that may occur
 - add checks during operations
-- add security
+- add security (authentication/authorization, TLS, audit)
