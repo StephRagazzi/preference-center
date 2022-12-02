@@ -33,12 +33,6 @@ export class UserConsent {
 
     @Prop({ type: mongoose.Schema.Types.Mixed, ref: 'Consents' })
     consents: Consent[];
-
-    // @Prop({
-    //     type: [{ id: { type: String }, enabled: { type: Boolean } }]
-    // })
-    // consents: { id: string; enabled: boolean }[];
-
 }
 
 const UserConsentSchema = SchemaFactory.createForClass(UserConsent);

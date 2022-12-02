@@ -1,7 +1,7 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { Model } from 'mongoose';
 import { CreateUserDto } from './dto/create-user.dto';
-import { UserConsent } from './interfaces/userConsent.interface';
+import { UserConsent } from '../interfaces/userConsent.interface';
 
 @Injectable()
 export class UsersService {
@@ -22,7 +22,6 @@ export class UsersService {
 
     async getOne(id: string): Promise<UserConsent> {
         const deletedUser = await this.userConsentModel.findOne({ id: id }, '-_id');
-        //items.find({}, { _id: 0 })
         console.log(deletedUser);
         return deletedUser;
     }

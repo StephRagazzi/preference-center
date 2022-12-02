@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Delete, Body, Param, HttpStatus, HttpException } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UsersService } from './users.service';
-import { UserConsent } from './interfaces/userConsent.interface';
+import { UserConsent } from '../interfaces/userConsent.interface';
 
 @Controller('users')
 export class UsersController {

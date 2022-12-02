@@ -1,5 +1,5 @@
 import { Mongoose } from 'mongoose';
-import { UserConsentSchema } from './schemas/user.schema';
+import { UserConsentSchema } from 'src/schemas/userConsent.schema';
 
 export const usersProviders = [
     {
