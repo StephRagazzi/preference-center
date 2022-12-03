@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { DatabaseModule } from 'src/database/database.module';
-import { usersProviders } from 'src/user/users.provider';
+import { DatabaseModule } from '../database/database.module';
+import { usersProviders } from '../user/users.provider';
 import { EventsController } from './events.controller';
 import { EventsService } from './events.service';
 

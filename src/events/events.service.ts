@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Model } from 'mongoose';
-import { UserConsent } from 'src/interfaces/userConsent.interface';
+import { UserConsent } from '../interfaces/userConsent.interface';
 import { UpdateUserDto } from './dto/update-user.dto';
 
 @Injectable()

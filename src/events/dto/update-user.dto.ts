@@ -1,5 +1,5 @@
-import { IConsent } from "src/interfaces/consent.interface";
-import { IUser } from "src/interfaces/user.interface";
+import { IConsent } from "../../interfaces/consent.interface";
+import { IUser } from "../../interfaces/user.interface";
 
 export class UpdateUserDto {
     readonly user: IUser;
