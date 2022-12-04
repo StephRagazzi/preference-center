@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import mongoose from 'mongoose';
+import mongoose, { Document } from "mongoose";
 
 @Schema()
 class Consent {
@@ -16,7 +16,7 @@ class Consents {
 }
 
 @Schema()
-export class UserConsent {
+export class UserConsent extends Document {
     @Prop()
     id: string;
 
