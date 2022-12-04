@@ -28,8 +28,8 @@ export class UsersController {
     }
 
     @Get(':id')
-    findOne(@Param('id') id: string): Promise<IUserConsent> {
-        return this.userService.getOne(id);
+    async getUser(@Param('id') id: string): Promise<IUserConsent> {
+        return this.userService.getUser(id);
     }
 
     @Delete()
