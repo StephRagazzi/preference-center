@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Delete, Body, Param, HttpStatus, HttpException } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UsersService } from './users.service';
-import { UserConsent } from '../interfaces/userConsent.interface';
+import { IUserConsent } from '../interfaces/userConsent.interface';
 
 @Controller('users')
 export class UsersController {
@@ -23,12 +23,12 @@ export class UsersController {
     }
 
     @Get()
-    async findAll(): Promise<UserConsent[]> {
+    async findAll(): Promise<IUserConsent[]> {
         return this.userService.findAll();
     }
 
     @Get(':id')
-    findOne(@Param('id') id: string): Promise<UserConsent> {
+    findOne(@Param('id') id: string): Promise<IUserConsent> {
         return this.userService.getOne(id);
     }
 
