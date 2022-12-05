@@ -33,11 +33,7 @@ export class UsersController {
     }
 
     @Delete()
-    async delete() {
-        try {
-            const deletedUser = await this.userService.delete();
-        } catch (err) {
-            return null;
-        }
+    async deleteAll() {
+        return this.userService.deleteAll();
     }
 }

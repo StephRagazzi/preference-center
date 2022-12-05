@@ -13,11 +13,14 @@ export class UsersService {
     }
 
     async findAll(): Promise<IUserConsent[]> {
-        return this.userConsentModel.find({}, '-_id').exec();
+        const allUsers = await this.userConsentModel.find({}, '-_id').exec();
+        return allUsers;
     }
 
-    async delete(): Promise<void> {
-        const deletedUser = await this.userConsentModel.deleteMany({});
+    async deleteAll(): Promise<{}> {
+        const deletedCount = await this.userConsentModel.deleteMany({});
+        console.log(deletedCount);
+        return deletedCount;
     }
 
     async getUser(id: string): Promise<IUserConsent> {
