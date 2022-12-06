@@ -13,7 +13,7 @@ export class UsersService {
     }
 
     async findAll(): Promise<IUserConsent[]> {
-        const allUsers = await this.userConsentModel.find({}, '-_id').exec();
+        const allUsers = await this.userConsentModel.find({}).exec();
         return allUsers;
     }
 
@@ -23,7 +23,7 @@ export class UsersService {
     }
 
     async getUser(id: string): Promise<IUserConsent> {
-        const user = await this.userConsentModel.findOne({ id: id }, '-_id').exec();
+        const user = await this.userConsentModel.findOne({ id: id }).exec();
         return user;
     }
 }

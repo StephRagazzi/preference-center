@@ -37,4 +37,9 @@ export class UserConsent extends Document {
 
 const UserConsentSchema = SchemaFactory.createForClass(UserConsent);
 UserConsentSchema.set('versionKey', false);
+UserConsentSchema.methods.toJSON = function () {
+    const obj = this.toObject();
+    delete obj._id;
+    return obj;
+}
 export { UserConsentSchema };
