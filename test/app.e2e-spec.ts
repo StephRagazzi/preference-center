@@ -33,4 +33,13 @@ describe('AppController (e2e)', () => {
       .expect(404)
       .expect({ statusCode: 404, message: 'User not found!' });
   });
+
+  it('responds with a 422 error if no ID defined', () => {
+    const user = { id: '', email: 'user99@email.com', consents: [] };
+    return request(app.getHttpServer())
+      .post('/users')
+      .send(user)
+      .expect(422)
+      .expect({ status: 422, error: 'UserConsent validation failed: id: Path `id` is required.' });
+  });
 });

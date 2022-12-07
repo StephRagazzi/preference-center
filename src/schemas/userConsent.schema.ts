@@ -17,7 +17,7 @@ class Consents {
 
 @Schema()
 export class UserConsent extends Document {
-    @Prop()
+    @Prop({ required: true })
     id: string;
 
     @Prop({
@@ -26,7 +26,7 @@ export class UserConsent extends Document {
                 const emailCount = await mongoose.models.UserConsent.countDocuments({ email });
                 return !emailCount;
             },
-            message: 'The e-mail address already exists!'
+            message: 'A user with the same email address already exists'
         }
     })
     email: string;

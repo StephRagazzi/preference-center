@@ -9,13 +9,12 @@ export class UsersController {
 
     @Post()
     async create(@Body() createUserDto: CreateUserDto) {
-        const errorMessage = 'A user with the same email address already exists';
         try {
             return await this.userService.create(createUserDto);
         } catch (error) {
             throw new HttpException({
                 status: HttpStatus.UNPROCESSABLE_ENTITY,
-                error: errorMessage,
+                error: error.message,
             }, HttpStatus.UNPROCESSABLE_ENTITY, {
                 cause: error
             });
