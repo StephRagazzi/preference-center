@@ -20,10 +20,17 @@ describe('AppController (e2e)', () => {
     await connection.close();
   });
 
-  it('/ (GET)', () => {
+  it('responds a welcome string to the API root url', () => {
     return request(app.getHttpServer())
       .get('/')
       .expect(200)
       .expect('Hello World!');
+  });
+
+  it('responds with a 404 error when a user does not exist', () => {
+    return request(app.getHttpServer())
+      .get('/users/unknown')
+      .expect(404)
+      .expect({ statusCode: 404, message: 'User not found!' });
   });
 });

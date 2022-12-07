@@ -9,7 +9,7 @@ export class UsersController {
 
     @Post()
     async create(@Body() createUserDto: CreateUserDto) {
-        const errorMessage = 'The e-mail address already exists';
+        const errorMessage = 'A user with the same email address already exists';
         try {
             return await this.userService.create(createUserDto);
         } catch (error) {
@@ -29,7 +29,12 @@ export class UsersController {
 
     @Get(':id')
     async getUser(@Param('id') id: string): Promise<IUserConsent> {
-        return this.userService.getUser(id);
+        const errorMessage = 'User not found!';
+        const user = await this.userService.getUser(id);
+        if (user != null) {
+            return user;
+        }
+        throw new HttpException(errorMessage, HttpStatus.NOT_FOUND);
     }
 
     @Delete()

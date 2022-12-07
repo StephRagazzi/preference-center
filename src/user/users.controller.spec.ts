@@ -98,7 +98,7 @@ describe('UsersController', () => {
 
     describe('getUser()', () => {
         it('should get a specific user', () => {
-            expect(controller.getUser('1234')).resolves.toEqual([
+            expect(controller.getUser('1357')).resolves.toEqual([
                 {
                     id: '1357',
                     email: 'jack@email.com',
